@@ -1,5 +1,5 @@
 #Web Scraper
 
-Scrapes weather data from site using requests and BeautifulSoup, and tabulates and analyzes it using pandas DataFrame
+Python scraper currently scrapes a specified weather site and uses DataFrame to tabulate and analyze the gathered data.
 
-Next Steps: Generalize the process using AutoHotKey to use specified site and tags as input as well as desired analysis
+Next Steps: Generalize the process using AutoHotKey to input specific site and tags to scrape. Option to suggest certain analysis.
