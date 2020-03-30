@@ -15,10 +15,13 @@ period_tags = seven_day.select(".tombstone-container .period-name")
 
 periods = [pt.get_text() for pt in period_tags]
 
+short_desc = [sd.get_text() for sd in seven_day.select(".tombstone-container .short-desc")]
 
+temps = [temp.get_text() for temp in seven_day.select(".tombstone-container .temp")]
 
+desc = [description["title"] for description in seven_day.select(".tombstone-container img")]
 
 print(periods)
 print(short_desc)
-print(temp)
-print("\n" + desc)
+print(temps)
+print(desc)
