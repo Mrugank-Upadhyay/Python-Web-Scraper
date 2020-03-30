@@ -1,5 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
+import pandas as pd
+import numpy
 
 # Downloads the requested page
 page = requests.get("https://forecast.weather.gov/MapClick.php?lat=37.7772&lon=-122.4168#.XoGTdohKhPY")
@@ -25,3 +27,23 @@ print(periods)
 print(short_desc)
 print(temps)
 print(desc)
+
+
+# implementing pandas dataframe
+
+weather = pd.DataFrame({"period": periods,
+                        "short_desc": short_desc,
+                        "temp": temps,
+                        "desc": desc})
+
+print(weather)
+
+temp_nums = weather["temp"].str.extract("(?P<temp_num>\d+)", expand = False)
+weather["temp_num"] = temp_nums.astype('int')
+
+print(temp_nums)
+
+weather["temp_num"].mean()
+
+is_night = weather["temp"].str.contains("Low")
+print(is_night)
